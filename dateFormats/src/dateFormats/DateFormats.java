@@ -28,21 +28,232 @@ public class DateFormats extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        pnlDate = new javax.swing.JPanel();
+        lblDay = new javax.swing.JLabel();
+        txtDay = new javax.swing.JTextField();
+        txtmonth = new javax.swing.JTextField();
+        lblMonth = new javax.swing.JLabel();
+        lblyear = new javax.swing.JLabel();
+        txtYear = new javax.swing.JTextField();
+        pnlFormats = new javax.swing.JPanel();
+        lblType = new javax.swing.JLabel();
+        lblShortDate = new javax.swing.JLabel();
+        lblLongDate = new javax.swing.JLabel();
+        cbxShortDate = new javax.swing.JComboBox();
+        cbxLongDate = new javax.swing.JComboBox();
+        btnSubmit = new javax.swing.JButton();
+        cbShortDate = new javax.swing.JCheckBox();
+        cbLongDate = new javax.swing.JCheckBox();
+        pnlDisplays = new javax.swing.JPanel();
+        lblShortDate1 = new javax.swing.JLabel();
+        lblLongDate1 = new javax.swing.JLabel();
+        txtShortDate = new javax.swing.JTextField();
+        txtLongDate = new javax.swing.JTextField();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Date Formats");
+
+        pnlDate.setBorder(javax.swing.BorderFactory.createTitledBorder("Date"));
+
+        lblDay.setText("Day:");
+
+        txtmonth.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtmonthActionPerformed(evt);
+            }
+        });
+
+        lblMonth.setText("Month:");
+
+        lblyear.setText("Year:");
+
+        txtYear.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtYearActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout pnlDateLayout = new javax.swing.GroupLayout(pnlDate);
+        pnlDate.setLayout(pnlDateLayout);
+        pnlDateLayout.setHorizontalGroup(
+            pnlDateLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlDateLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(lblDay)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(txtDay, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(34, 34, 34)
+                .addComponent(lblMonth)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(txtmonth, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(30, 30, 30)
+                .addComponent(lblyear)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(txtYear, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        pnlDateLayout.setVerticalGroup(
+            pnlDateLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlDateLayout.createSequentialGroup()
+                .addGroup(pnlDateLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblDay)
+                    .addComponent(txtDay, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtmonth, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblMonth)
+                    .addComponent(lblyear)
+                    .addComponent(txtYear, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(0, 14, Short.MAX_VALUE))
+        );
+
+        pnlFormats.setBorder(javax.swing.BorderFactory.createTitledBorder("Formats"));
+
+        lblType.setText("Type:");
+
+        lblShortDate.setText("Short Date :");
+
+        lblLongDate.setText("Long Date :");
+
+        cbxShortDate.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "dd/MM/yy", "yy-MM-dd", "MM.dd.YY" }));
+
+        cbxLongDate.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "dd-MMMM-yyyy", "yyyy/MMMM/dd", "MMMM.dd.yyyy" }));
+
+        btnSubmit.setText("Submit");
+
+        cbShortDate.setText("Short Date");
+
+        cbLongDate.setText("Long Date");
+
+        javax.swing.GroupLayout pnlFormatsLayout = new javax.swing.GroupLayout(pnlFormats);
+        pnlFormats.setLayout(pnlFormatsLayout);
+        pnlFormatsLayout.setHorizontalGroup(
+            pnlFormatsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlFormatsLayout.createSequentialGroup()
+                .addGap(21, 21, 21)
+                .addGroup(pnlFormatsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lblShortDate)
+                    .addComponent(lblLongDate))
+                .addGap(18, 18, 18)
+                .addGroup(pnlFormatsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(cbxLongDate, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(cbxShortDate, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(169, Short.MAX_VALUE))
+            .addGroup(pnlFormatsLayout.createSequentialGroup()
+                .addComponent(btnSubmit)
+                .addGap(0, 0, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlFormatsLayout.createSequentialGroup()
+                .addComponent(lblType)
+                .addGap(35, 35, 35)
+                .addComponent(cbShortDate)
+                .addGap(34, 34, 34)
+                .addComponent(cbLongDate)
+                .addGap(113, 113, 113))
+        );
+        pnlFormatsLayout.setVerticalGroup(
+            pnlFormatsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlFormatsLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(pnlFormatsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblType)
+                    .addComponent(cbShortDate)
+                    .addComponent(cbLongDate))
+                .addGap(18, 18, 18)
+                .addGroup(pnlFormatsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblShortDate)
+                    .addComponent(cbxShortDate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(pnlFormatsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblLongDate)
+                    .addComponent(cbxLongDate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 12, Short.MAX_VALUE)
+                .addComponent(btnSubmit)
+                .addContainerGap())
+        );
+
+        pnlDisplays.setBorder(javax.swing.BorderFactory.createTitledBorder("Displays"));
+
+        lblShortDate1.setText("Short Date :");
+
+        lblLongDate1.setText("Long Date :");
+
+        txtShortDate.setEditable(false);
+        txtShortDate.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtShortDateActionPerformed(evt);
+            }
+        });
+
+        txtLongDate.setEditable(false);
+
+        javax.swing.GroupLayout pnlDisplaysLayout = new javax.swing.GroupLayout(pnlDisplays);
+        pnlDisplays.setLayout(pnlDisplaysLayout);
+        pnlDisplaysLayout.setHorizontalGroup(
+            pnlDisplaysLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlDisplaysLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(pnlDisplaysLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlDisplaysLayout.createSequentialGroup()
+                        .addComponent(lblLongDate1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED))
+                    .addGroup(pnlDisplaysLayout.createSequentialGroup()
+                        .addComponent(lblShortDate1)
+                        .addGap(7, 7, 7)))
+                .addGroup(pnlDisplaysLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(txtShortDate)
+                    .addComponent(txtLongDate))
+                .addContainerGap())
+        );
+        pnlDisplaysLayout.setVerticalGroup(
+            pnlDisplaysLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnlDisplaysLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(pnlDisplaysLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblShortDate1)
+                    .addComponent(txtShortDate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(pnlDisplaysLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblLongDate1)
+                    .addComponent(txtLongDate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(15, Short.MAX_VALUE))
+        );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(pnlDisplays, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(pnlDate, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(pnlFormats, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(pnlDate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(pnlFormats, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(pnlDisplays, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void txtmonthActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtmonthActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtmonthActionPerformed
+
+    private void txtYearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtYearActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtYearActionPerformed
+
+    private void txtShortDateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtShortDateActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtShortDateActionPerformed
 
     /**
      * @param args the command line arguments
@@ -80,5 +291,26 @@ public class DateFormats extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnSubmit;
+    private javax.swing.JCheckBox cbLongDate;
+    private javax.swing.JCheckBox cbShortDate;
+    private javax.swing.JComboBox cbxLongDate;
+    private javax.swing.JComboBox cbxShortDate;
+    private javax.swing.JLabel lblDay;
+    private javax.swing.JLabel lblLongDate;
+    private javax.swing.JLabel lblLongDate1;
+    private javax.swing.JLabel lblMonth;
+    private javax.swing.JLabel lblShortDate;
+    private javax.swing.JLabel lblShortDate1;
+    private javax.swing.JLabel lblType;
+    private javax.swing.JLabel lblyear;
+    private javax.swing.JPanel pnlDate;
+    private javax.swing.JPanel pnlDisplays;
+    private javax.swing.JPanel pnlFormats;
+    private javax.swing.JTextField txtDay;
+    private javax.swing.JTextField txtLongDate;
+    private javax.swing.JTextField txtShortDate;
+    private javax.swing.JTextField txtYear;
+    private javax.swing.JTextField txtmonth;
     // End of variables declaration//GEN-END:variables
 }
