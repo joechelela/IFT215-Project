@@ -6,6 +6,8 @@
 
 package dateFormats;
 
+
+import javax.swing.JOptionPane;
 /**
  *
  * @author joe
@@ -17,6 +19,10 @@ public class DateFormats extends javax.swing.JFrame {
      */
     public DateFormats() {
         initComponents();
+        this.setLocationRelativeTo(this);
+        cbShortDate.setSelected(true);
+        rootPane.setDefaultButton(btnSubmit);
+        this.setTitle("Date Formats");
     }
 
     /**
@@ -56,6 +62,17 @@ public class DateFormats extends javax.swing.JFrame {
         pnlDate.setBorder(javax.swing.BorderFactory.createTitledBorder("Date"));
 
         lblDay.setText("Day:");
+
+        txtDay.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtDayActionPerformed(evt);
+            }
+        });
+        txtDay.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtDayKeyTyped(evt);
+            }
+        });
 
         txtmonth.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -118,6 +135,11 @@ public class DateFormats extends javax.swing.JFrame {
         cbxLongDate.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "dd-MMMM-yyyy", "yyyy/MMMM/dd", "MMMM.dd.yyyy" }));
 
         btnSubmit.setText("Submit");
+        btnSubmit.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSubmitActionPerformed(evt);
+            }
+        });
 
         cbShortDate.setText("Short Date");
 
@@ -136,16 +158,17 @@ public class DateFormats extends javax.swing.JFrame {
                 .addGroup(pnlFormatsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(cbxLongDate, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(cbxShortDate, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(169, Short.MAX_VALUE))
-            .addGroup(pnlFormatsLayout.createSequentialGroup()
-                .addComponent(btnSubmit)
-                .addGap(0, 0, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlFormatsLayout.createSequentialGroup()
-                .addComponent(lblType)
-                .addGap(35, 35, 35)
-                .addComponent(cbShortDate)
-                .addGap(34, 34, 34)
-                .addComponent(cbLongDate)
+                .addGap(0, 6, Short.MAX_VALUE)
+                .addGroup(pnlFormatsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(btnSubmit)
+                    .addGroup(pnlFormatsLayout.createSequentialGroup()
+                        .addComponent(lblType)
+                        .addGap(35, 35, 35)
+                        .addComponent(cbShortDate)
+                        .addGap(34, 34, 34)
+                        .addComponent(cbLongDate)))
                 .addGap(113, 113, 113))
         );
         pnlFormatsLayout.setVerticalGroup(
@@ -164,9 +187,9 @@ public class DateFormats extends javax.swing.JFrame {
                 .addGroup(pnlFormatsLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblLongDate)
                     .addComponent(cbxLongDate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 12, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(btnSubmit)
-                .addContainerGap())
+                .addContainerGap(12, Short.MAX_VALUE))
         );
 
         pnlDisplays.setBorder(javax.swing.BorderFactory.createTitledBorder("Displays"));
@@ -254,6 +277,32 @@ public class DateFormats extends javax.swing.JFrame {
     private void txtShortDateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtShortDateActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtShortDateActionPerformed
+
+    private void txtDayKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtDayKeyTyped
+        
+    }//GEN-LAST:event_txtDayKeyTyped
+
+    private void btnSubmitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSubmitActionPerformed
+        // TODO add your handling code here:
+         if(txtDay.getText().trim().equals("") || (txtmonth.getText().trim().equals("")) || (txtYear.getText().trim().equals(""))){
+            JOptionPane.showMessageDialog(this, "Please enter a valid day, month or year","Waring",JOptionPane.INFORMATION_MESSAGE);
+        }
+         int day=Integer.parseInt(txtDay.getText().trim());
+         
+         if((day>0)&&(day<32)){
+             txtDay.getText();
+         }
+             else{
+                                         
+             JOptionPane.showMessageDialog(this,"enter a valid day between 1 & 31","Warning",JOptionPane.INFORMATION_MESSAGE);
+         }
+         
+    }//GEN-LAST:event_btnSubmitActionPerformed
+
+    private void txtDayActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtDayActionPerformed
+        // TODO add your handling code here:
+        
+    }//GEN-LAST:event_txtDayActionPerformed
 
     /**
      * @param args the command line arguments
