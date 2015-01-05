@@ -19,8 +19,8 @@ public class DateFormats extends javax.swing.JFrame {
      */
     public DateFormats() {
         initComponents();
-        this.setLocationRelativeTo(this);
         cbShortDate.setSelected(true);
+        cbLongDate.setSelected(true);
         rootPane.setDefaultButton(btnSubmit);
         this.setTitle("Date Formats");
     }
@@ -37,7 +37,7 @@ public class DateFormats extends javax.swing.JFrame {
         pnlDate = new javax.swing.JPanel();
         lblDay = new javax.swing.JLabel();
         txtDay = new javax.swing.JTextField();
-        txtmonth = new javax.swing.JTextField();
+        txtMonth = new javax.swing.JTextField();
         lblMonth = new javax.swing.JLabel();
         lblyear = new javax.swing.JLabel();
         txtYear = new javax.swing.JTextField();
@@ -53,8 +53,8 @@ public class DateFormats extends javax.swing.JFrame {
         pnlDisplays = new javax.swing.JPanel();
         lblShortDate1 = new javax.swing.JLabel();
         lblLongDate1 = new javax.swing.JLabel();
-        txtShortDate = new javax.swing.JTextField();
-        txtLongDate = new javax.swing.JTextField();
+        txtShortDateb = new javax.swing.JTextField();
+        txtLongDateb = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Date Formats");
@@ -74,9 +74,14 @@ public class DateFormats extends javax.swing.JFrame {
             }
         });
 
-        txtmonth.addActionListener(new java.awt.event.ActionListener() {
+        txtMonth.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtmonthActionPerformed(evt);
+                txtMonthActionPerformed(evt);
+            }
+        });
+        txtMonth.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtMonthKeyTyped(evt);
             }
         });
 
@@ -87,6 +92,11 @@ public class DateFormats extends javax.swing.JFrame {
         txtYear.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtYearActionPerformed(evt);
+            }
+        });
+        txtYear.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtYearKeyTyped(evt);
             }
         });
 
@@ -102,7 +112,7 @@ public class DateFormats extends javax.swing.JFrame {
                 .addGap(34, 34, 34)
                 .addComponent(lblMonth)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(txtmonth, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(txtMonth, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(30, 30, 30)
                 .addComponent(lblyear)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -115,7 +125,7 @@ public class DateFormats extends javax.swing.JFrame {
                 .addGroup(pnlDateLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblDay)
                     .addComponent(txtDay, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtmonth, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtMonth, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lblMonth)
                     .addComponent(lblyear)
                     .addComponent(txtYear, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -130,9 +140,19 @@ public class DateFormats extends javax.swing.JFrame {
 
         lblLongDate.setText("Long Date :");
 
-        cbxShortDate.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "dd/MM/yy", "yy-MM-dd", "MM.dd.YY" }));
+        cbxShortDate.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "MM/dd/yy", "yyyy-MM-dd" }));
+        cbxShortDate.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cbxShortDateActionPerformed(evt);
+            }
+        });
 
-        cbxLongDate.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "dd-MMMM-yyyy", "yyyy/MMMM/dd", "MMMM.dd.yyyy" }));
+        cbxLongDate.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "MMMM dd", "yyyy", "yyyy mmmm-dd" }));
+        cbxLongDate.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cbxLongDateActionPerformed(evt);
+            }
+        });
 
         btnSubmit.setText("Submit");
         btnSubmit.addActionListener(new java.awt.event.ActionListener() {
@@ -142,6 +162,11 @@ public class DateFormats extends javax.swing.JFrame {
         });
 
         cbShortDate.setText("Short Date");
+        cbShortDate.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cbShortDateActionPerformed(evt);
+            }
+        });
 
         cbLongDate.setText("Long Date");
 
@@ -198,14 +223,14 @@ public class DateFormats extends javax.swing.JFrame {
 
         lblLongDate1.setText("Long Date :");
 
-        txtShortDate.setEditable(false);
-        txtShortDate.addActionListener(new java.awt.event.ActionListener() {
+        txtShortDateb.setEditable(false);
+        txtShortDateb.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtShortDateActionPerformed(evt);
+                txtShortDatebActionPerformed(evt);
             }
         });
 
-        txtLongDate.setEditable(false);
+        txtLongDateb.setEditable(false);
 
         javax.swing.GroupLayout pnlDisplaysLayout = new javax.swing.GroupLayout(pnlDisplays);
         pnlDisplays.setLayout(pnlDisplaysLayout);
@@ -221,8 +246,8 @@ public class DateFormats extends javax.swing.JFrame {
                         .addComponent(lblShortDate1)
                         .addGap(7, 7, 7)))
                 .addGroup(pnlDisplaysLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(txtShortDate)
-                    .addComponent(txtLongDate))
+                    .addComponent(txtShortDateb)
+                    .addComponent(txtLongDateb))
                 .addContainerGap())
         );
         pnlDisplaysLayout.setVerticalGroup(
@@ -231,11 +256,11 @@ public class DateFormats extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(pnlDisplaysLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblShortDate1)
-                    .addComponent(txtShortDate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtShortDateb, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(pnlDisplaysLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lblLongDate1)
-                    .addComponent(txtLongDate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtLongDateb, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(15, Short.MAX_VALUE))
         );
 
@@ -266,43 +291,140 @@ public class DateFormats extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void txtmonthActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtmonthActionPerformed
+    private void txtMonthActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtMonthActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtmonthActionPerformed
+    }//GEN-LAST:event_txtMonthActionPerformed
 
     private void txtYearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtYearActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtYearActionPerformed
 
-    private void txtShortDateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtShortDateActionPerformed
+    private void txtShortDatebActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtShortDatebActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_txtShortDateActionPerformed
+    }//GEN-LAST:event_txtShortDatebActionPerformed
 
     private void txtDayKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtDayKeyTyped
-        
+if(txtDay.getText().length() >=2){
+    evt.consume();
+}        
     }//GEN-LAST:event_txtDayKeyTyped
 
     private void btnSubmitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSubmitActionPerformed
         // TODO add your handling code here:
-         if(txtDay.getText().trim().equals("") || (txtmonth.getText().trim().equals("")) || (txtYear.getText().trim().equals(""))){
-            JOptionPane.showMessageDialog(this, "Please enter a valid day, month or year","Waring",JOptionPane.INFORMATION_MESSAGE);
+       
+        
+         if(txtDay.getText().trim().equals("") && (txtMonth.getText().trim().equals("")) && (txtYear.getText().trim().equals(""))){
+            JOptionPane.showMessageDialog(this, "Please enter a valid day, month and year","Waring",JOptionPane.INFORMATION_MESSAGE);
         }
-         int day=Integer.parseInt(txtDay.getText().trim());
+         else if (txtDay.getText().trim().equals("")&&(txtMonth.getText().trim().equals(""))){
+             JOptionPane.showMessageDialog (this,"please enter a valid day and month","warning",JOptionPane.INFORMATION_MESSAGE);}
+             else if (txtDay.getText().trim().equals("")&&(txtYear.getText().trim().equals(""))){
+                 JOptionPane.showMessageDialog (this,"please enter a valid day and year","warning",JOptionPane.INFORMATION_MESSAGE);
+             }
+             else if (txtMonth.getText().trim().equals("")&&(txtYear.getText().trim().equals(""))){
+                 JOptionPane.showMessageDialog (this,"please enter a valid month and year","warning",JOptionPane.INFORMATION_MESSAGE);
+             }
+         else if(txtDay.getText().trim().equals("") ){
+                 JOptionPane.showMessageDialog (this, "please enter a valid day","warning",JOptionPane.INFORMATION_MESSAGE);}
+        else if(txtMonth.getText().trim().equals("")){
+                 JOptionPane.showMessageDialog (this,"please enter a valid month","Warning",JOptionPane.INFORMATION_MESSAGE);}
+        else if(txtYear.getText().trim().equals("")){
+            JOptionPane.showMessageDialog (this,"please enter a valid year","warning",JOptionPane.INFORMATION_MESSAGE);
+        }
          
-         if((day>0)&&(day<32)){
+         
+        int day=Integer.parseInt(txtDay.getText().trim());
+        int month=Integer.parseInt(txtMonth.getText().trim());
+        int year=Integer.parseInt(txtYear.getText().trim());
+         
+        if((day>0)&&(day<32)){
              txtDay.getText();
          }
              else{
                                          
-             JOptionPane.showMessageDialog(this,"enter a valid day between 1 & 31","Warning",JOptionPane.INFORMATION_MESSAGE);
+             JOptionPane.showMessageDialog(this,"you entered an invalid day please enter a day between 1 & 31","ERROR",JOptionPane.INFORMATION_MESSAGE);
          }
          
+         if((month>0)&&(month<13)){
+             txtMonth.getText();
+         }
+             else{
+                                         
+             JOptionPane.showMessageDialog(this,"you entered an invalid month please enter a month between 1 & 12","ERROR",JOptionPane.INFORMATION_MESSAGE);
+         }
+         
+         if((year>1899)&&(year<2101)){
+             txtYear.getText();
+         }
+             else{
+                                         
+             JOptionPane.showMessageDialog(this,"you entered an invalid year please enter a year between 1900 & 2100","ERROR",JOptionPane.INFORMATION_MESSAGE);
+         }
+         
+         String Type = lblType .getText();
+         boolean longDate;
+         boolean shortDate;
+         longDate = cbLongDate.isSelected();
+         shortDate= cbShortDate.isSelected();
+         String txtLongDate =(String)cbxLongDate.getSelectedItem();
+         String txtShortDate = (String) cbxShortDate.getSelectedItem();
+         String longDateb=txtLongDateb.getText();
+         String shortDateb=txtShortDateb.getText();
+        if(cbLongDate.isSelected()){ 
+         dateFormatsmain re = 
+                new dateFormatsmain(day,month,year,Type,longDate,shortDate,txtShortDate,txtLongDate,longDateb,shortDateb);
+                txtLongDateb.setText(re.getLongDateForm());
+        }
+        else {
+            
+           dateFormatsmain re;
+             re = new dateFormatsmain(day,month,year,Type,longDate,shortDate,txtLongDate,txtShortDate,longDateb,shortDateb);
+                            txtLongDateb.setText(re.getLongDates12());}
+        if(cbShortDate.isSelected()){
+         dateFormatsmain re=
+                    new dateFormatsmain (day,month,year,Type,longDate,shortDate,txtShortDate,txtLongDate,longDateb,shortDateb);
+                    txtShortDateb.setText(re.getDateForm());}
+                   
+        else
+                    
+        {  dateFormatsmain re=
+            new dateFormatsmain (day,month,year,Type,longDate,shortDate,txtShortDate,txtLongDate,longDateb,shortDateb);
+                            txtShortDateb.setText(re.getShortDates12());
+        }
+        
+        
+
+        
     }//GEN-LAST:event_btnSubmitActionPerformed
 
     private void txtDayActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtDayActionPerformed
         // TODO add your handling code here:
         
     }//GEN-LAST:event_txtDayActionPerformed
+
+    private void cbxShortDateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbxShortDateActionPerformed
+      // TODO add your handling code here:
+    }//GEN-LAST:event_cbxShortDateActionPerformed
+
+    private void cbShortDateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbShortDateActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cbShortDateActionPerformed
+
+    private void txtMonthKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtMonthKeyTyped
+if(txtMonth.getText().length() >=2){
+    evt.consume();
+}// TODO add your handling code here:
+    }//GEN-LAST:event_txtMonthKeyTyped
+
+    private void txtYearKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtYearKeyTyped
+if(txtYear.getText().length() >=4){
+    evt.consume();  
+}// TODO add your handling code here:
+    }//GEN-LAST:event_txtYearKeyTyped
+
+    private void cbxLongDateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbxLongDateActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cbxLongDateActionPerformed
 
     /**
      * @param args the command line arguments
@@ -357,9 +479,13 @@ public class DateFormats extends javax.swing.JFrame {
     private javax.swing.JPanel pnlDisplays;
     private javax.swing.JPanel pnlFormats;
     private javax.swing.JTextField txtDay;
-    private javax.swing.JTextField txtLongDate;
-    private javax.swing.JTextField txtShortDate;
+    private javax.swing.JTextField txtLongDateb;
+    private javax.swing.JTextField txtMonth;
+    private javax.swing.JTextField txtShortDateb;
     private javax.swing.JTextField txtYear;
-    private javax.swing.JTextField txtmonth;
     // End of variables declaration//GEN-END:variables
+private String String(String toString) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 }
+

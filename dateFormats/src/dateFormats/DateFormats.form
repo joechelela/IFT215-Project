@@ -70,7 +70,7 @@
                   <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
                   <Component id="lblMonth" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
-                  <Component id="txtmonth" min="-2" pref="29" max="-2" attributes="0"/>
+                  <Component id="txtMonth" min="-2" pref="29" max="-2" attributes="0"/>
                   <EmptySpace min="-2" pref="30" max="-2" attributes="0"/>
                   <Component id="lblyear" min="-2" max="-2" attributes="0"/>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
@@ -85,7 +85,7 @@
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="lblDay" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="txtDay" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="txtmonth" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="txtMonth" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="lblMonth" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="lblyear" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="txtYear" alignment="3" min="-2" max="-2" attributes="0"/>
@@ -107,9 +107,10 @@
             <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txtDayKeyTyped"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JTextField" name="txtmonth">
+        <Component class="javax.swing.JTextField" name="txtMonth">
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtmonthActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtMonthActionPerformed"/>
+            <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txtMonthKeyTyped"/>
           </Events>
         </Component>
         <Component class="javax.swing.JLabel" name="lblMonth">
@@ -125,6 +126,7 @@
         <Component class="javax.swing.JTextField" name="txtYear">
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtYearActionPerformed"/>
+            <EventHandler event="keyTyped" listener="java.awt.event.KeyListener" parameters="java.awt.event.KeyEvent" handler="txtYearKeyTyped"/>
           </Events>
         </Component>
       </SubComponents>
@@ -215,24 +217,29 @@
         <Component class="javax.swing.JComboBox" name="cbxShortDate">
           <Properties>
             <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-              <StringArray count="3">
-                <StringItem index="0" value="dd/MM/yy"/>
-                <StringItem index="1" value="yy-MM-dd"/>
-                <StringItem index="2" value="MM.dd.YY"/>
+              <StringArray count="2">
+                <StringItem index="0" value="MM/dd/yy"/>
+                <StringItem index="1" value="yyyy-MM-dd"/>
               </StringArray>
             </Property>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cbxShortDateActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JComboBox" name="cbxLongDate">
           <Properties>
             <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
               <StringArray count="3">
-                <StringItem index="0" value="dd-MMMM-yyyy"/>
-                <StringItem index="1" value="yyyy/MMMM/dd"/>
-                <StringItem index="2" value="MMMM.dd.yyyy"/>
+                <StringItem index="0" value="MMMM dd"/>
+                <StringItem index="1" value="yyyy"/>
+                <StringItem index="2" value="yyyy mmmm-dd"/>
               </StringArray>
             </Property>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cbxLongDateActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="btnSubmit">
           <Properties>
@@ -246,6 +253,9 @@
           <Properties>
             <Property name="text" type="java.lang.String" value="Short Date"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cbShortDateActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JCheckBox" name="cbLongDate">
           <Properties>
@@ -279,8 +289,8 @@
                       </Group>
                   </Group>
                   <Group type="103" groupAlignment="0" attributes="0">
-                      <Component id="txtShortDate" max="32767" attributes="0"/>
-                      <Component id="txtLongDate" max="32767" attributes="0"/>
+                      <Component id="txtShortDateb" max="32767" attributes="0"/>
+                      <Component id="txtLongDateb" max="32767" attributes="0"/>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
               </Group>
@@ -292,12 +302,12 @@
                   <EmptySpace max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="lblShortDate1" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="txtShortDate" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="txtShortDateb" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="lblLongDate1" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="txtLongDate" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="txtLongDateb" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <EmptySpace pref="15" max="32767" attributes="0"/>
               </Group>
@@ -315,15 +325,15 @@
             <Property name="text" type="java.lang.String" value="Long Date :"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JTextField" name="txtShortDate">
+        <Component class="javax.swing.JTextField" name="txtShortDateb">
           <Properties>
             <Property name="editable" type="boolean" value="false"/>
           </Properties>
           <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtShortDateActionPerformed"/>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtShortDatebActionPerformed"/>
           </Events>
         </Component>
-        <Component class="javax.swing.JTextField" name="txtLongDate">
+        <Component class="javax.swing.JTextField" name="txtLongDateb">
           <Properties>
             <Property name="editable" type="boolean" value="false"/>
           </Properties>
